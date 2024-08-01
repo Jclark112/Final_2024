@@ -26,6 +26,47 @@ A new  preventative vaccine (covid921) is under test in clinical trials. Given t
 
 ## Males
 
+$H_0$: The Covid921 vaccine is not effective in males. 
+
+$H_A$: The Covid921 vaccine is effective in males. 
+
+### Methods
+
+The helper file used is CAT~CAT
+Male and Treatments will be Cat
+
+### Descriptive Results
+
+### Graphical Results
+
+```{r}
+males=filter(FinalData,FinalData$sex=="M")
+barchartGC(~treatment + infected, data=males)
+barchartGC(~infected + treatment,data=males,type="percent")
+```
+
+This graph shows that the males who got the vaccine were less infected than the males who got the placebo. About 50% of both the males who got the placebo and the males who got the vaccine were okay. 
+
+### Numerical Results
+
+```{r}
+table1 <- xtabs(~treatment + infected,data=males)
+rowPerc(table1)
+colPerc(table1)
+```
+
+
+The chart shows that roughly 74% of the group of males which got the placebo got covid19. about 26% of the males who got the vaccine also were infected with covid19. 
+
+### Inferential Results
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+The chi-square test and the fishers exact test are both equaling to 0.000022. This indicates that the vaccine reduces the likelihood of getting Covid 19. The odds for contracting Covid 19 increase by almost 3% by the group receiving the placebo. There is a 95% confidence interval which tells us that vaccination is effective in preventing Covid 19.
 
 ## Females
 
