@@ -32,20 +32,21 @@ $H_A$: The Covid921 vaccine is effective in males.
 
 ### Methods
 
-The helper file used is CAT~CAT
-Male and Treatments will be Cat
+The helper file used is CAT~CAT.   
 
-### Descriptive Results
+Male and Treatments will be Cat.  
 
-### Graphical Results
+Male and Treatments are categorical variables. 
+
+### Descriptive Results  
+
+### Graphical Results  
 
 ```{r}
 males=filter(FinalData,FinalData$sex=="M")
-barchartGC(~treatment + infected, data=males)
+barchartGC(~treatment + infected,data=males)
 barchartGC(~infected + treatment,data=males,type="percent")
 ```
-
-This graph shows that the males who got the vaccine were less infected than the males who got the placebo. About 50% of both the males who got the placebo and the males who got the vaccine were okay. 
 
 ### Numerical Results
 
@@ -70,8 +71,67 @@ The chi-square test and the fishers exact test are both equaling to 0.000022. Th
 
 ## Females
 
+$H_0$: The Covid921 vaccine is not effective in females. 
+
+$H_A$: The Covid921 vaccine is effective in females. 
+
+### Methods
+
+The helper file used is CAT~CAT.  
+
+Females and Treatments will be Cat.  
+
+Females and Treatments are Categorical values.  
+
+### Descriptive Results
+
+#### Graphical Results
+
+```{r}
+females=filter(FinalData,FinalData$sex=="F")
+barchartGC(~treatment + infected,data=females)
+barchartGC(~infected + treatment,data=females,type="percent")
+```
+
+This graph shows that females who got the vaccine were less infected with Covid 19 then those who were given the placebo. About 50% of the females which recieved the placebo were ok and about 51% of the females with the vaccine were ok. 
+
+#### Numerical Results
+
+```{r}
+table1 <- xtabs(~treatment + infected,data=males)
+rowPerc(table1)
+colPerc(table1)
+```
+
+The numerical results show that the vaccine is effective in reducing the chances of contracting covid 19 compared to the placebo.  The odds of contracting covid 19 are reduced by approximately 47% by those which received the vaccine. The vaccine lowers the risk of infection by 45% compared to the placebo. 
+
+#### Inferential Results
+ 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+The chi-square test is equaling to 0.00001914. The Fishers Exact Test is 0.00001246 also confirmed the statistical significance of the infection rates between the placebo and the vaccination groups. The odds ratio of 1.8562 means that the odds of getting Covid within the placebo groups is 1.86 times more likely than the vaccine. There is a 95% confidence interval that suggests that the odds ratio is between 1.49 and 2.32, which tells us that the vaccine is most effective.
 
 ## LGBTQ
+
+$H_0$: The Covid19 vaccine is not effective in the LGBTQ community.
+
+$H_A$: The Covid19 vaccine is effective in the LGBTQ community.
+
+### Methods
+
+The helper files we use are Cat~Cat
+LGBTQ and Treatments are Cat
+LGBTQ and Treatments are categorical values
+
+### Descriptive Results
+
+#### Graphical Results
+
+
 
 
 
