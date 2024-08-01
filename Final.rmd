@@ -182,12 +182,12 @@ We use the helper file CAT~CAT.
 #### Graphical Results
 
 ```{r}
-DrugUser=filter(FinalData)
+DrugUser=filter(FinalData, FinalData $DrugUser=="yes")
 barchartGC(~treatment + infected,data=DrugUser)
 barchartGC(~infected + treatment,data=DrugUser,type="percent")
 ```
 
-The table shows that amongst drug users there was higher instances of contracting covid as opposed to the vaccinated group. 
+The table shows that amongst drug users there was higher instances of contracting covid as the placebo group as opposed to the vaccinated group. 
 
 #### Numerical Summary
 
@@ -212,7 +212,9 @@ the people which got the vaccines.
  
 # Overall Results and Conclusions
 
+The covid vaccine affected populations differently throughout each sample population studied. 
 
+When tested if the vaccines effectiveness in the male population the inferential results going by the chi-squared test results showed that the p-value was 0.00000000000000022. The Fishers Exact Test proved that the odd ratio for the male population was 2.8 times more likely to contract Covid 19 (with placebo) as opposed to those who got the vacination. 
 
 
 
