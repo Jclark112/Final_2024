@@ -164,9 +164,48 @@ The Chi Squared test showed that the p-value is 0.00000000000000022 therefore we
 
 ## Druggies
 
-$H_0$: The Covid19 vaccine is not effective in the LGBTQ community.
+$H_0$: The Covid19 vaccine is not effective in the DrugUser community.
 
-$H_A$: The Covid19 vaccine is effective in the LGBTQ community.
+$H_A$: The Covid19 vaccine is effective in the DrugUser community.
 
 
+### Methods
+
+Drug Users and Treatment is a categorical value. 
+
+LGBTQ and treatment is Cat. 
+
+We use the helper file CAT~CAT. 
+
+#### Descriptive Results
+
+#### Graphical Results
+
+```{r}
+DrugUser=filter(FinalData)
+barchartGC(~treatment + infected,data=DrugUser)
+barchartGC(~infected + treatment,data=DrugUser,type="percent")
+```
+
+The table shows that amongst drug users there was higher instances of contracting covid as opposed to the vaccinated group. 
+
+#### Numerical Summary
+
+```{r}
+table1 <- xtabs(~treatment + infected,data=DrugUser)
+rowPerc(table1)
+colPerc(table1)
+```
+
+The results in the chart show that 69% of the placebo group contracted covid 19 and only about 31% of the vaccinated group contracted covid 19. 
+
+#### Inferential Results
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+ 
+ The 
 # Overall Results and Conclusions
