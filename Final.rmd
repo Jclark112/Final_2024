@@ -207,5 +207,14 @@ chisqtestGC(table1)
 fisher.test(table1)
 ```
  
- The 
+ The inferential results for the chi-squared test,proved that the p-value is 0.00000000000000022 therefore we reject the null hypothesis due to it being less than 0.05. The Fisher's Exact Test showed that the p-value 0.00000000000000022 therfore we reject the null hypothesis. The test showed that the odd ratio of drug users was 2.2 times more likely to contract covid with the placebo as opposed to 
+the people which got the vaccines. 
+ 
 # Overall Results and Conclusions
+
+
+
+
+
+
+
