@@ -113,7 +113,7 @@ chisqtestGC(table1)
 fisher.test(table1)
 ```
 
-The chi-square test is equaling to 0.00001914. The Fishers Exact Test is 0.00001246 also confirmed the statistical significance of the infection rates between the placebo and the vaccination groups. The odds ratio of 1.8562 means that the odds of getting Covid within the placebo groups is 1.86 times more likely than the vaccine. There is a 95% confidence interval that suggests that the odds ratio is between 1.49 and 2.32, which tells us that the vaccine is most effective.
+The chi-square test is equaling to 0.00001914. The Fishers Exact Test is 0.00001246 also confirmed the statistical significance of the infection rates between the placebo and the vaccination groups. The odds ratio of 1.8562 means that the odds of getting Covid within the placebo groups is 1.86 times more likely than the vaccine. There is a 95% confidence interval that suggests that the odds ratio is between 1.49 and 2.32, which tells us that the vaccine is most effective. We must reject the null hypothesis as the values are less than 0.05.
 
 ## LGBTQ
 
@@ -124,18 +124,49 @@ $H_A$: The Covid19 vaccine is effective in the LGBTQ community.
 ### Methods
 
 The helper files we use are Cat~Cat
+
 LGBTQ and Treatments are Cat
+
 LGBTQ and Treatments are categorical values
 
 ### Descriptive Results
 
 #### Graphical Results
 
+```{r}
+LGBTQ=filter(FinalData,FinalData$LGBTQ=="gay")
+barchartGC(~treatment + infected,data=LGBTQ)
+barchartGC(~infected + treatment,data=LGBTQ,type="percent")
+```
+
+The table proves that within the LGBTQ community there was more infected people with Covid 19 within the group which received the placebo. The ones which got the vaccine had a significant decrease of contracting Covid 19. 
 
 
+#### Numerical Summary 
 
+```{r}
+table1 <- xtabs(~treatment + infected,data=LGBTQ)
+rowPerc(table1)
+colPerc(table1)
+```
+
+The numerical results prove that 20% of those who got the vaccine got covid and about 80% of those who got the placebo got Covid 19. 
+
+#### Inferential Results
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+The Chi Squared test showed that the p-value is 0.00000000000000022 therefore we must reject the null hypothesis as it is a value less than 0.05. The fishers exact test shows that the p-value is 0.000000000000000022 therefore we reject the null hypothesis as its less than 0.05. The test tells us that LGBTQ have an odds ratio of 4.2 times. This means theyre more likely to get covid 19 with the placebo as opposed to the group with the vaccine. 
 
 ## Druggies
+
+$H_0$: The Covid19 vaccine is not effective in the LGBTQ community.
+
+$H_A$: The Covid19 vaccine is effective in the LGBTQ community.
 
 
 # Overall Results and Conclusions
